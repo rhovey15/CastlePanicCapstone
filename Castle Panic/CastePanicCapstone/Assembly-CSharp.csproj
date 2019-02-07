@@ -53,6 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\EnemyScripts\GoblinScript.cs" />
+     <Compile Include="Assets\Scripts\TurnBasedGameplay\EnemyTurn.cs" />
+     <Compile Include="Assets\Scripts\TurnBasedGameplay\PlayerTurn.cs" />
+     <Compile Include="Assets\Scripts\TurnBasedGameplay\Turns.cs" />
      <Compile Include="Assets\Scripts\WallScript.cs" />
  <Reference Include="Cinemachine">
  <HintPath>E:/2018-2019/Capstone/CastlePanic/Castle Panic/CastePanicCapstone/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
