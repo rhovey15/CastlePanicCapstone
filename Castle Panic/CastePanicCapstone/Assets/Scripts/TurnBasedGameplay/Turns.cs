@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Make An RPG Episode 8: Turn-Based Combat Part 1 [Unity, C#]: https://youtu.be/Uhnh8zj_VPo
+
 public class Turns : MonoBehaviour
-{ 
+{
+    public MonsterSpawnControl monsterSpawnControlScript = new MonsterSpawnControl(); //Spawn the enemies in a turn
+    public EnemyTurn enemyTurnScript = new EnemyTurn();
+    int spawnI = 0;
+    int enemyI = 0;
+
     public enum TurnStates
     {
         START, //Start State, where they get new cards?
@@ -15,8 +22,7 @@ public class Turns : MonoBehaviour
     }
 
     private TurnStates currentStates;
-    private string nextStateName;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -30,19 +36,32 @@ public class Turns : MonoBehaviour
         switch (currentStates)
         {
             case (TurnStates.START):
+                spawnI = 0;
+                enemyI = 0;
+
                 break;//Make this where they draw cards up?
             case (TurnStates.PLAYERTURN):
                 break;
                 //See Make an RPG Episode 42 discussing abiliites (around 10min)
             case (TurnStates.ENEMYTURN):
+                while (enemyI < 1)
+                {
+                    enemyTurnScript.MoveMonsters();
+                    enemyI++;
+                }
+
                 break;
             case (TurnStates.SPAWNNEW):
-                //See Make an RPG Episode 41 online around 13:00 min
+                while (spawnI < 1)//REMEMBER TO CHANGE THIS BACK TO 2!!!!!!!!
+                {
+                    monsterSpawnControlScript.SpawnAMonster();
+                    spawnI++;
+                }
                 break;
         }
     }
 
-    void OnGUI()
+    void OnGUI() //Make An RPG Episode 43 (20min ish) has some GUI information 
     {
         if (GUILayout.Button("Next phase"))
         {
