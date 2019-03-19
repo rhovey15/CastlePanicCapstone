@@ -20,6 +20,5 @@ public class EnemyTurn : MonoBehaviour
             monster.transform.position = Vector2.MoveTowards(monster.transform.position, target.transform.position, 0.5f);
         }
 
-   
     }
 }

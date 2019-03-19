@@ -8,6 +8,7 @@ public class Turns : MonoBehaviour
 {
     public MonsterSpawnControl monsterSpawnControlScript = new MonsterSpawnControl(); //Spawn the enemies in a turn
     public EnemyTurn enemyTurnScript = new EnemyTurn();
+    public int spawnMax;
     int spawnI = 0;
     int enemyI = 0;
 
@@ -52,7 +53,7 @@ public class Turns : MonoBehaviour
 
                 break;
             case (TurnStates.SPAWNNEW):
-                while (spawnI < 1)//REMEMBER TO CHANGE THIS BACK TO 2!!!!!!!!
+                while (spawnI < spawnMax)
                 {
                     monsterSpawnControlScript.SpawnAMonster();
                     spawnI++;
