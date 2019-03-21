@@ -15,11 +15,59 @@ public class MonsterSpawnControl : MonoBehaviour
     int i;
 
     public void SpawnAMonster()
-    {       
-            randomSpawnPoint = rand.Next(0, spawnPoints.Length);
-            randomMonster = rand.Next(0, monsters.Length);
-            GameObject monsterObject = UnityEngine.Object.Instantiate(monsters[randomMonster], spawnPoints[randomSpawnPoint].position,
+    {
+        int goblin = 0;
+        int orc = 1;
+        int troll = 2;
+        randomSpawnPoint = rand.Next(0, spawnPoints.Length);
+        randomMonster = rand.Next(0, monsters.Length);
+        GameObject monsterObject = UnityEngine.Object.Instantiate(monsters[randomMonster], spawnPoints[randomSpawnPoint].position,
                 Quaternion.identity);
+
+        MonsterScript monsterDetails = monsterObject.GetComponent<MonsterScript>();
+        //Set hit points based on monster 
+        if (randomMonster == goblin)
+        {
+            monsterDetails.hitPoints = 1;
+        }
+        else if (randomMonster == orc)
+        {
+            monsterDetails.hitPoints = 2;
+        }
+        else if (randomMonster == troll)
+        {
+            monsterDetails.hitPoints = 3;
+        }
+
+        //Set color attribute based on spawn point
+        //switch (randomSpawnPoint)
+        //{
+        //    case 0:
+        //    case 1:
+        //        monsterDetails.color = "Red";
+        //        break;
+        //    case 2:
+        //    case 3:
+        //        monsterDetails.color = "Green";
+        //        break;
+        //    case 4:
+        //    case 5:
+        //        monsterDetails.color = "Blue";
+        //        break;
+        //}
+        if (randomSpawnPoint == 0 || randomSpawnPoint == 1)
+        {
+            monsterDetails.color = "Red";
+        }
+        else if (randomSpawnPoint == 2 || randomSpawnPoint == 3)
+        {
+            monsterDetails.color = "Green";
+        }
+        else if (randomSpawnPoint == 4 || randomSpawnPoint == 5)
+        {
+            monsterDetails.color = "Blue";
+        }
+
     }
-    
+
 }

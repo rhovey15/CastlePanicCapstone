@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5508439985374932431}
   - component: {fileID: 3359854620123529060}
-  - component: {fileID: 2780440761048744585}
   - component: {fileID: 3082943761378924811}
   - component: {fileID: 4793124579355445516}
+  - component: {fileID: 4334403797449956642}
   m_Layer: 0
   m_Name: Orc
   m_TagString: Monster
@@ -82,19 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2780440761048744585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3115055366713210375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7ad85910d264d0489db2bde9a705114, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPoints: 2
 --- !u!61 &3082943761378924811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142,3 +129,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4334403797449956642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3115055366713210375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d012feaecafe140b66ca074eaf34a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 0
+  color: 

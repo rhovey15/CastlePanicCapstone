@@ -9,6 +9,11 @@ TagManager:
   - Spawn
   - Monster
   - Structure
+  - Archer
+  - Knight
+  - Swordsman
+  - TowerRing
+  - Forest
   layers:
   - Default
   - TransparentFX

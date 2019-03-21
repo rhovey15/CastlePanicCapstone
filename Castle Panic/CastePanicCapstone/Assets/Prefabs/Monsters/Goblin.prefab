@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4291291005068764330}
   - component: {fileID: 1252568580}
   - component: {fileID: 6123773998744161547}
-  - component: {fileID: 457439964706830955}
   - component: {fileID: 6524888003483519783}
+  - component: {fileID: 2333978336683444203}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Monster
@@ -108,19 +108,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3460418, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &457439964706830955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1252568578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 087657beaaf0e80498f2422afb2060f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitPoints: 1
 --- !u!50 &6524888003483519783
 Rigidbody2D:
   serializedVersion: 4
@@ -142,3 +129,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2333978336683444203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252568578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d012feaecafe140b66ca074eaf34a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 0
+  color: 
