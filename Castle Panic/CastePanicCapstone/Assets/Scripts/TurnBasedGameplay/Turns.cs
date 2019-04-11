@@ -6,12 +6,17 @@ using UnityEngine;
 
 public class Turns : MonoBehaviour
 {
-    public MonsterSpawnControl monsterSpawnControlScript = new MonsterSpawnControl(); //Spawn the enemies in a turn
+    public MonsterSpawnControl monsterSpawnControlScript = new MonsterSpawnControl();
     public EnemyTurn enemyTurnScript = new EnemyTurn();
-    public int spawnMax;
-    int spawnI = 0;
-    int enemyI = 0;
+    public CardSpawnControl cardSpawnControlScript = new CardSpawnControl();
+    
+    private string[] currentStateStrings = new string[4]{ "Draw Cards", "Player Turn", "Monsters Move", "Spawn New Monsters" };
+    private int currentStateStringsCounter = 1;
 
+    public int spawnMax;
+    private int spawnControllerCount;
+    private int enemyTurnControllerCount;
+    
     public enum TurnStates
     {
         START, //Start State, where they get new cards?
@@ -22,52 +27,69 @@ public class Turns : MonoBehaviour
                  //when a player wins and when monsters win?
     }
 
-    private TurnStates currentStates;
+    private TurnStates currentState;
     
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        currentStates = TurnStates.START; //Always sets the current state to START at the beginning
+        currentState = TurnStates.START; //Always sets the current state to START at the beginning
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(currentStates);
-        switch (currentStates)
+    private void Update()
+    {  
+        //Debug.Log(currentState);
+        switch (currentState)
         {
             case (TurnStates.START):
-                spawnI = 0;
-                enemyI = 0;
-
-                break;//Make this where they draw cards up?
-            case (TurnStates.PLAYERTURN):
-                break;
-                //See Make an RPG Episode 42 discussing abiliites (around 10min)
-            case (TurnStates.ENEMYTURN):
-                while (enemyI < 1)
+                spawnControllerCount = 0;
+                enemyTurnControllerCount = 0;
+                                
+                while (cardSpawnControlScript.cardSpawnPointIterator < cardSpawnControlScript.spawnPoints.Length)
                 {
-                    enemyTurnScript.MoveMonsters();
-                    enemyI++;
+                    cardSpawnControlScript.DealACard();
+                    cardSpawnControlScript.cardSpawnPointIterator++;
                 }
 
+                break;//Make this where they draw cards up?
+
+            case (TurnStates.PLAYERTURN):
+                cardSpawnControlScript.cardSpawnPointIterator = 0;
+
                 break;
+                //See Make an RPG Episode 42 discussing abiliites (around 10min)
+
+            case (TurnStates.ENEMYTURN):
+                while (enemyTurnControllerCount < 1)
+                {
+                    enemyTurnScript.MoveMonsters();
+                    enemyTurnControllerCount++;
+                }
+                break;
+
             case (TurnStates.SPAWNNEW):
-                while (spawnI < spawnMax)
+                while (spawnControllerCount < spawnMax)
                 {
                     monsterSpawnControlScript.SpawnAMonster();
-                    spawnI++;
+                    spawnControllerCount++;
                 }
                 break;
         }
     }
 
-    void OnGUI() //Make An RPG Episode 43 (20min ish) has some GUI information 
+    private void OnGUI()
     {
-        if (GUILayout.Button("Next phase"))
+        if (GUILayout.Button("Next: " + currentStateStrings[currentStateStringsCounter]))
         {
-            currentStates = (TurnStates)(((int)currentStates + 1) % 4);//4 is the number of states.
-                                                                       //There is no easy way to just use the "length" or something
+            currentState = (TurnStates)(((int)currentState + 1) % currentStateStrings.Length);
+
+            if (currentStateStringsCounter < 3)
+            {
+                currentStateStringsCounter++;
+            }    
+            else
+            {
+                currentStateStringsCounter = 0;
+            }
+                
         }
     }
 

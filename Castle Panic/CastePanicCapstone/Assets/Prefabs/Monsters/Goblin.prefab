@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4291291005068764330}
+  - component: {fileID: 3987319713986683414}
   - component: {fileID: 1252568580}
   - component: {fileID: 6123773998744161547}
   - component: {fileID: 6524888003483519783}
@@ -20,16 +20,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4291291005068764330
+--- !u!4 &3987319713986683414
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252568578}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.124, y: -1.754, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,18 +95,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0038489029, y: 0}
+  m_Offset: {x: 0.00037106872, y: 0.006896615}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3460418, y: 0.5}
+  m_Size: {x: 0.5547742, y: 0.68620676}
   m_EdgeRadius: 0
 --- !u!50 &6524888003483519783
 Rigidbody2D:
@@ -141,5 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d012feaecafe140b66ca074eaf34a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoints: 0
-  color: 
+  hitPoints: 1
+  color: Green
+  ring: 

@@ -11,17 +11,12 @@ public class MonsterScript : MonoBehaviour
     public string color;
     public string ring;
 
-    void Start()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Forest")
-        {
-            ring = "Forest";
-        }
+        //if (col.gameObject.tag == "Forest")
+        //{
+        //    ring = "Forest";
+        //} You might be able to get rid of this. It probably makes things easier to leave it out 
         if (col.gameObject.tag == "Archer")
         {
             ring = "Archer";
@@ -46,7 +41,7 @@ public class MonsterScript : MonoBehaviour
         }
     }
 
-    void takeDamage()
+    public void takeDamage()
     {
         hitPoints -= 1;
         if (hitPoints <= 0)

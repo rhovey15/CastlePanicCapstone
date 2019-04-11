@@ -1,9 +1,7 @@
 fileFormatVersion: 2
-guid: c1085455dfb82db4bbd4106a39daba5f
+guid: b67f097bd2a59264389de19b4b45cf6a
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Wall-Proto_0
-    21300002: Wall-Proto_1
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -33,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -42,13 +40,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-  spriteBorder: {x: 2, y: 3, z: 3, w: 2}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -84,31 +82,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Wall-Proto_0
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 3
-        width: 80
-        height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 219603c52adfcd442afc80557597dd6a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8189d0da9d297ff4f8a18bbaf1a0d22d
+    spriteID: 3cdd30179b5851e46b87973d70afd35b
     vertices: []
     indices: 
     edges: []
