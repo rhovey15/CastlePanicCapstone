@@ -16,6 +16,7 @@ TagManager:
   - Forest
   - CardSpawn
   - Tower
+  - Target
   layers:
   - Default
   - TransparentFX

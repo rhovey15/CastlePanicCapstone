@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Unity Tutorial How to Move or Drag Gameobject With Mouse
+//https://www.youtube.com/watch?v=p7akGCRgBLA&t=1s
+
 public class DragGameObject : MonoBehaviour
 {
     public string cardType;

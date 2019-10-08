@@ -7,16 +7,15 @@ using UnityEngine;
 
 public class MonsterScript : MonoBehaviour
 {
+
     public int hitPoints;
+    public int spawnZone;
     public string color;
     public string ring;
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        //if (col.gameObject.tag == "Forest")
-        //{
-        //    ring = "Forest";
-        //} You might be able to get rid of this. It probably makes things easier to leave it out 
+        //Setting ring tags
         if (col.gameObject.tag == "Archer")
         {
             ring = "Archer";
@@ -34,10 +33,29 @@ public class MonsterScript : MonoBehaviour
             ring = "Tower";
         }
 
+        //Checking structure collision
         if (col.gameObject.tag == "Wall")
         {
-            Destroy(col.gameObject);
-            takeDamage();
+            StructureScript structureDetails = col.GetComponent<StructureScript>();
+            if (structureDetails.spawnZone == spawnZone)
+            {
+                Destroy(col.gameObject);
+                takeDamage();
+            }
+        }
+        if (col.gameObject.tag == "Tower")
+        {
+            StructureScript structureDetails = col.GetComponent<StructureScript>();
+            if (structureDetails.spawnZone == spawnZone)
+            {
+                Destroy(col.gameObject);
+                DIE();
+            }
+        }
+
+        if (col.gameObject.tag == "Target")
+        {
+            DIE(); //Maybe have it spawn back at a random spawn point? You'll have to figure out some way to make it clear that's what happening
         }
     }
 
@@ -53,5 +71,6 @@ public class MonsterScript : MonoBehaviour
     void DIE()
     {
         Destroy(gameObject);
+        //FindObjectOfType<Turns>().totalMonsters -= 1;
     }
 }

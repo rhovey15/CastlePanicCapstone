@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //How do I check if an object contains a child?
-//https://answers.unity.com/questions/341232/spawn-prefabs-as-children-of-another-game-object.html
+//https://answers.unity.com/questions/911194/how-do-i-check-if-an-object-contains-a-child.html
 
 //Spawn Prefabs as Children of Another Game Object
 //https://answers.unity.com/questions/341232/spawn-prefabs-as-children-of-another-game-object.html

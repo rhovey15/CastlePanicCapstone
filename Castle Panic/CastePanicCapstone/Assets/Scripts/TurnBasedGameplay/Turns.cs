@@ -9,9 +9,13 @@ public class Turns : MonoBehaviour
     public MonsterSpawnControl monsterSpawnControlScript = new MonsterSpawnControl();
     public EnemyTurn enemyTurnScript = new EnemyTurn();
     public CardSpawnControl cardSpawnControlScript = new CardSpawnControl();
+    public GameManagerScript gameManagerScript = new GameManagerScript();
     
     private string[] currentStateStrings = new string[4]{ "Draw Cards", "Player Turn", "Monsters Move", "Spawn New Monsters" };
     private int currentStateStringsCounter = 1;
+    private GameObject[] towersOnBoard;
+
+    public int totalMonstersRemaining = 8;//27
 
     public int spawnMax;
     private int spawnControllerCount;
@@ -32,17 +36,30 @@ public class Turns : MonoBehaviour
     private void Start()
     {
         currentState = TurnStates.START; //Always sets the current state to START at the beginning
+        totalMonstersRemaining -= 6; //Starting with 6 monsters on the board.
     }
+        
 
     private void Update()
-    {  
+    {
+        towersOnBoard = GameObject.FindGameObjectsWithTag("Tower");
+        if (towersOnBoard.Length == 0)
+        {
+            gameManagerScript.LoseGame();
+        }
+
+        if (enemyTurnScript.monstersOnBoard.Length == 0 && totalMonstersRemaining == 0)
+        {
+            gameManagerScript.WinGame();
+        }
+
         //Debug.Log(currentState);
         switch (currentState)
         {
             case (TurnStates.START):
                 spawnControllerCount = 0;
                 enemyTurnControllerCount = 0;
-                                
+                                             
                 while (cardSpawnControlScript.cardSpawnPointIterator < cardSpawnControlScript.spawnPoints.Length)
                 {
                     cardSpawnControlScript.DealACard();
@@ -55,7 +72,6 @@ public class Turns : MonoBehaviour
                 cardSpawnControlScript.cardSpawnPointIterator = 0;
 
                 break;
-                //See Make an RPG Episode 42 discussing abiliites (around 10min)
 
             case (TurnStates.ENEMYTURN):
                 while (enemyTurnControllerCount < 1)
@@ -66,11 +82,17 @@ public class Turns : MonoBehaviour
                 break;
 
             case (TurnStates.SPAWNNEW):
-                while (spawnControllerCount < spawnMax)
+                if (totalMonstersRemaining > 0)
                 {
-                    monsterSpawnControlScript.SpawnAMonster();
-                    spawnControllerCount++;
+                    while (spawnControllerCount < spawnMax)
+                    {
+                        monsterSpawnControlScript.SpawnAMonster();
+                        spawnControllerCount++;
+
+                        totalMonstersRemaining -= 1; // reducing how many monsters remain everytime one spawns
+                    }
                 }
+                
                 break;
         }
     }

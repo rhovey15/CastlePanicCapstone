@@ -39,22 +39,6 @@ public class MonsterSpawnControl : MonoBehaviour
             monsterDetails.hitPoints = 3;
         }
 
-        //Set color attribute based on spawn point
-        //switch (randomSpawnPoint)
-        //{
-        //    case 0:
-        //    case 1:
-        //        monsterDetails.color = "Red";
-        //        break;
-        //    case 2:
-        //    case 3:
-        //        monsterDetails.color = "Green";
-        //        break;
-        //    case 4:
-        //    case 5:
-        //        monsterDetails.color = "Blue";
-        //        break;
-        //}
         if (randomSpawnPoint == 0 || randomSpawnPoint == 1)
         {
             monsterDetails.color = "Red";
@@ -67,6 +51,8 @@ public class MonsterSpawnControl : MonoBehaviour
         {
             monsterDetails.color = "Blue";
         }
+
+        monsterDetails.spawnZone = randomSpawnPoint + 1;
 
     }
 

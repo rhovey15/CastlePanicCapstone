@@ -58,9 +58,10 @@
      <Compile Include="Assets\Scripts\EnemyScripts\MaybeDelete\TrollScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScripts\MonsterScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts\DragGameObject.cs" />
-     <Compile Include="Assets\Scripts\PlayerScripts\WallScript.cs" />
+     <Compile Include="Assets\Scripts\PlayerScripts\StructureScript.cs" />
      <Compile Include="Assets\Scripts\TurnBasedGameplay\CardSpawnControl.cs" />
      <Compile Include="Assets\Scripts\TurnBasedGameplay\EnemyTurn.cs" />
+     <Compile Include="Assets\Scripts\TurnBasedGameplay\GameManagerScript.cs" />
      <Compile Include="Assets\Scripts\TurnBasedGameplay\MonsterSpawnControl.cs" />
      <Compile Include="Assets\Scripts\TurnBasedGameplay\PlayerTurn.cs" />
      <Compile Include="Assets\Scripts\TurnBasedGameplay\Turns.cs" />
